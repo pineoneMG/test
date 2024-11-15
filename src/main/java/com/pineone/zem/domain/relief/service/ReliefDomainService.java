@@ -33,7 +33,7 @@ public class ReliefDomainService {
     public void updateReliefSettings(Relief reliefSettings) {
 
         reliefRepository.findByUserId(reliefSettings.getUserId())
-                        .orElseThrow(()-> new NoDataException("안심설정 데이터가 없습니다. userId : "+ reliefSettings.getUserId()));
+                        .orElseThrow(()-> new NoDataException("안심설정 데이터가 없습니다. userId : "+ reliefSettings.getUserId())); // 메서드 분리하면 더 좋을거같아
 
         reliefRepository.updateReliefSettings(reliefSettings);
     }

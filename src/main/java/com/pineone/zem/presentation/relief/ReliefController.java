@@ -29,7 +29,7 @@ public class ReliefController {
     @RequestMapping("/edit")
     public ResponseEntity<ApiResult<Void>> updateReliefSetting(@RequestBody @Valid ReliefRequest reliefRequest){
         System.out.println("Received Request: " + reliefRequest.toString());
-        reliefUseCase.updateReliefSettings(reliefAssembler.toRegisterReliefCommand(reliefRequest));
+        reliefUseCase.updateReliefSettings(reliefAssembler.toRegisterReliefCommand(reliefRequest)); // 이게 꼭 Application 거쳐야 할까?? 바로 Domain에 가도 될듯
 
         return ResponseEntity.ok(ApiResult.ok());
     }
