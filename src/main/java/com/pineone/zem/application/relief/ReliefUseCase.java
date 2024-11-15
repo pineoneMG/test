@@ -26,7 +26,7 @@ public class ReliefUseCase {
 
         Relief relief = reliefDomainService.getReliefSettings(userId);
 
-        return new ReliefResponse(relief);
+        return ReliefResponse.from(relief);
     }
 
     public void updateReliefSettings(ReliefRegisterCommand reliefRegisterCommand){

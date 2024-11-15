@@ -5,20 +5,19 @@ import com.pineone.zem.domain.relief.aggregate.Relief;
 import com.pineone.zem.domain.relief.aggregate.Smombie;
 import lombok.Getter;
 
-@Getter
 public class ReliefResponse {
-    private Long userId;
-    private Boolean isDangerSiteOn;
-    private Boolean isBrowserOn;
-    private Boolean isPaymentBlockOn;
-    private Smombie smombie;
-    private DisplayDistance displayDistance;
-    private Boolean isBlueLightBlockOn;
-    private Boolean isGoogleLocationOn;
-    private Boolean isPermissionOn;
-    private Boolean isAppDeleteOn;
+    Long userId;
+    Boolean isDangerSiteOn;
+    Boolean isBrowserOn;
+    Boolean isPaymentBlockOn;
+    Smombie smombie;
+    DisplayDistance displayDistance;
+    Boolean isBlueLightBlockOn;
+    Boolean isGoogleLocationOn;
+    Boolean isPermissionOn;
+    Boolean isAppDeleteOn;
 
-    public ReliefResponse(Relief relief) {
+    private ReliefResponse(Relief relief) {
         this.userId = relief.getUserId();
         this.isDangerSiteOn = relief.getIsDangerSiteOn();
         this.isBrowserOn = relief.getIsBrowserOn();
@@ -29,6 +28,10 @@ public class ReliefResponse {
         this.isGoogleLocationOn = relief.getIsGoogleLocationOn();
         this.isPermissionOn = relief.getIsPermissionOn();
         this.isAppDeleteOn = relief.getIsAppDeleteOn();
+    }
+
+    public static ReliefResponse from(Relief relief) {
+        return new ReliefResponse(relief);
     }
 
 }

@@ -10,5 +10,10 @@ public class User {
     private String password;
     private String email;
 
-    public User(Long id, Long userId, String username, String password, String email) {}
+    private User(Long id, Long userId, String username, String password, String email) {}
+
+    public static User from(Long id, Long userId, String username, String password, String email) {
+        return new User(id, userId, username, password, email);
+    }
+
 }

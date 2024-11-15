@@ -22,8 +22,7 @@ public class ReliefController {
     @GetMapping("/{userId}")
     public ResponseEntity<ApiResult<ReliefResponse>> getReliefSetting(@PathVariable("userId") Long userId){
 
-        ReliefResponse reliefResponse = reliefUseCase.getReliefSettings(userId);
-
+        ReliefResponse reliefResponse = reliefUseCase.getReliefSettings(userId); //settings 라고 복수로 붙인 이유?
         return ResponseEntity.ok(ApiResult.ok(reliefResponse));
     }
 
